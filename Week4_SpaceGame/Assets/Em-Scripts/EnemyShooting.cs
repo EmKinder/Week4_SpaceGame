@@ -9,11 +9,11 @@ public class EnemyShooting : MonoBehaviour
     public Transform laserPos;
 
     private float timer;
-    //private GameObject player;
+    private GameObject player;
     // Start is called before the first frame update
     void Start()
     {
-       // player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -21,16 +21,19 @@ public class EnemyShooting : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-       // float distance = Vector2.Distance(transform.position, player.transform.position);
+        float distance = Vector3.Distance(transform.position, player.transform.position);
+        Debug.Log(distance);
 
-  
-        
-        if(timer > 2)
+
+        if(distance < 10.0f)
         {
-            timer = 0;
-            Shoot();      
+            if (timer > 2)
+            {
+                timer = 0;
+                Shoot();
+            }
         }
-        
+ 
     }
 
     void Shoot()
