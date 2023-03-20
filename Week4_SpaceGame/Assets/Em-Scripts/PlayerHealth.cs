@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    int startingHealth = 3;
-    public int currentHealth;
+    float startingHealth = 3;
+    public float currentHealth;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +21,7 @@ public class PlayerHealth : MonoBehaviour
     public void BeenHit(int livesLost)
     {
         currentHealth -= livesLost;
-        if(currentHealth == 0)
+        if(currentHealth <= 0)
         {
             //Game Over
             Debug.Log("Game Over");
