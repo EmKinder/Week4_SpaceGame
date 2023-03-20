@@ -38,7 +38,7 @@ public class EnemyLaser : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            ph.BeenHit(1);
+            ph.BeenHit(0.5f);
             Destroy(this.gameObject);
         }
     }

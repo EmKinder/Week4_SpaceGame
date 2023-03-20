@@ -18,7 +18,7 @@ public class PlayerHealth : MonoBehaviour
         
     }
 
-    public void BeenHit(int livesLost)
+    public void BeenHit(float livesLost)
     {
         currentHealth -= livesLost;
         if(currentHealth <= 0)
