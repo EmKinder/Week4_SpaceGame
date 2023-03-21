@@ -816,7 +816,7 @@ GameObject:
   - component: {fileID: 1050632193}
   - component: {fileID: 1050632198}
   m_Layer: 0
-  m_Name: deathenemy
+  m_Name: Astroid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -910,6 +910,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03533511512fdc240a5c391bcb631934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whateverHealthTheyreLosing: 0
 --- !u!1 &1101021600 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a87f92d89c351ad40b005b0c31abe784, type: 3}
