@@ -9,7 +9,8 @@ public class EnemyLaser : MonoBehaviour
     private Rigidbody rb;
     public float force;
     PlayerHealth ph;
-    float timer; 
+    float timer;
+    bool canShoot;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,7 @@ public class EnemyLaser : MonoBehaviour
         rb.velocity = new Vector3(direction.x, direction.y, direction.z).normalized * force;
         transform.LookAt(player.transform);
         transform.Rotate(90.0f, 0.0f, 0.0f);
-
+        canShoot = true;
     }   
 
     // Update is called once per frame
@@ -42,4 +43,5 @@ public class EnemyLaser : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
 }

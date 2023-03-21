@@ -6,27 +6,49 @@ public class EnemyBodySlam : MonoBehaviour
 {
 
     Rigidbody rb;
+    GameObject player;
+    Transform playerTrans;
+    float speed = 2.0f;
+    Vector3 moveDirection;
+
     PlayerHealth ph;
+    EnemyDeath ed;
+    public EnemyMoveAndRotate mr;
+   // bool canMove;
+
+    public AudioSource audio;
+    public AudioClip death;
+    
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        ph = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerTrans = player.GetComponent<Transform>();
+        ph = player.GetComponent<PlayerHealth>();
+        ed = GetComponentInChildren<EnemyDeath>();
+        //canMove = true;
+        
+      //  es = GetComponent<EnemyShooting>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Player")
         {
+            // canMove = false;
+            mr.SetCanMove(false);
             ph.BeenHit(1);
-            //do animation then
-            Destroy(this.gameObject);
+            ed.ThisEnemyDeath();
+           // es.SetCanShoot(false);
         }
     }
 }
