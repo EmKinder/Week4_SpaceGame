@@ -9,11 +9,11 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - TargetRaycasts
   - Water
   - UI
-  - 
-  - 
+  - Cannon
+  - Ship
   - 
   - 
   - 
