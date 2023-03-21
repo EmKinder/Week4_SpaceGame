@@ -22,7 +22,7 @@ public class EnemyShooting : MonoBehaviour
         timer += Time.deltaTime;
 
         float distance = Vector3.Distance(transform.position, player.transform.position);
-        Debug.Log(distance);
+       // Debug.Log(distance);
 
 
         if(distance < 10.0f)
@@ -41,3 +41,4 @@ public class EnemyShooting : MonoBehaviour
         Instantiate(laser, laserPos.position, Quaternion.identity);
     }
 }
+    
