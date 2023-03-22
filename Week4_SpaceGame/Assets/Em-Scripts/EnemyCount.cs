@@ -10,7 +10,7 @@ public class EnemyCount : MonoBehaviour
     GameObject player;
     bool moveToPosition1;
     bool moveToPosition2;
-    float targetPosition1 = 233;
+    bool moveToStartPosition;
     public bool CheckEnemiesLeftBool;
 
     // Start is called before the first frame update
@@ -27,38 +27,37 @@ public class EnemyCount : MonoBehaviour
     void Update()
     {
         CheckEnemiesLeft();
-        if (CheckEnemiesLeftBool)
+      /*  if (CheckEnemiesLeftBool)
         {
             TriggerEnemiesLeftTest();
             CheckEnemiesLeftBool = false;
-        }
-
-        if (moveToPosition1)
+        }*/
+        if (player)
         {
-            
+            if (moveToStartPosition) {
+                if (!(player.transform.position.z >= 55))
+                    player.transform.position += new Vector3(0, 0, 20f) * Time.deltaTime;
+                else
+                    moveToStartPosition = false;
 
-            if (!(player.transform.position.z >= 235))
-                player.transform.position += new Vector3 (0, 0, 20f) * Time.deltaTime;
+                if (moveToPosition1)
+                {
+                    if (!(player.transform.position.z >= 235))
+                        player.transform.position += new Vector3(0, 0, 20f) * Time.deltaTime;
+                else
+                    moveToPosition1 = false;
 
-            else
-            {
-                moveToPosition1 = false;
-            }
-        }
-        //448
-
-        if (moveToPosition2)
-        {
-
-            if (!(player.transform.position.z >= 445))
-                player.transform.position += new Vector3(0, 0, 20f) * Time.deltaTime;
-
-            else
-            {
-                moveToPosition2 = false;
+                    if (moveToPosition2) 
+                        if (!(player.transform.position.z >= 445)) 
+                            player.transform.position += new Vector3(0, 0, 20f) * Time.deltaTime;
+                        else 
+                            moveToPosition2 = false;
+                        
+                    }
             }
         }
     }
+        
 
     public void SetEnemiesLeft()
     {
@@ -69,11 +68,16 @@ public class EnemyCount : MonoBehaviour
 
     public void ResetEnemies()
     {
-        enemiesLeft = 27;
+        enemiesLeft = 24;
     }
 
     public void CheckEnemiesLeft()
     {
+
+        if(enemiesLeft == 24)
+        {
+            moveToStartPosition = true;
+        }
         if (enemiesLeft == 16)
         {
             Debug.Log("Enemies = 16");
