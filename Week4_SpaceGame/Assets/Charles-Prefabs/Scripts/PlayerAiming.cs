@@ -4,20 +4,31 @@ using UnityEngine;
 
 public class PlayerAiming : MonoBehaviour
 {
-    [SerializeField] private Camera fpsCamera;
-    [SerializeField] private LayerMask layerMask;
-    [SerializeField] private GameObject rotationObjects;
+    public Camera fpsCamera;
     public GameObject laser;
     public Transform laserPos;
     private float timer;
     public AudioSource audio;
     public AudioClip pewpew;
     public float speed = 15f;
-    bool canShoot;
+    public GameObject ship;
+    float x;
+    float y;
+    Vector3 rotate;
+    public float sensitivityX = 5f;
+    public float sensitivityY = 5f;
+    public float minimumX = -45f;
+    public float maximumX = 45f;
+    public float minimumY = -90f;
+    public float maximumY = 90f;
+    public float rotationX = 0f;
+    public float rotationY = 0f;
+
 
     private void Start()
     {
-        canShoot = true;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     private void Update()
@@ -26,7 +37,7 @@ public class PlayerAiming : MonoBehaviour
 
         Debug.Log(Input.mousePosition);
 
-
+        /*
         Ray ray = fpsCamera.ScreenPointToRay(Input.mousePosition);
         //
         if (Physics.Raycast(ray, out RaycastHit raycastHit))
@@ -35,9 +46,9 @@ public class PlayerAiming : MonoBehaviour
             transform.position = raycastHit.point;
             
             Vector3 rotation = raycastHit.point - rotationObjects.transform.position;
-            float rotZ = Mathf.Atan2(rotation.x, rotation.z) * Mathf.Rad2Deg;
-            float rotX = Mathf.Atan2(rotation.y, rotation.z) * Mathf.Rad2Deg;
-            rotationObjects.transform.rotation = Quaternion.Euler(-(rotX+90) , 0, rotZ);
+            float rotZ = Mathf.Atan2(rotation.x, rotation.y) * Mathf.Rad2Deg;
+            float rotX = Mathf.Atan2(rotation.z, rotation.y) * Mathf.Rad2Deg;
+            rotationObjects.transform.rotation = Quaternion.Euler(rotX, 0, rotZ);
 
 
             /*
@@ -45,14 +56,34 @@ public class PlayerAiming : MonoBehaviour
             float singleStep = speed * Time.deltaTime;
             Vector3 newDirection = Vector3.RotateTowards(rotationObjects.transform.forward, -targetDirection, singleStep, 0.0f);
             rotationObjects.transform.localRotation = Quaternion.LookRotation(newDirection);
-            */
+           
 
 
 
         }
 
-        if (canShoot == true)
-        {
+         */
+
+
+        //Aiming
+
+
+        rotationX += Input.GetAxis("Mouse Y") * sensitivityX;
+        rotationX = Mathf.Clamp(rotationX, minimumX, maximumX);
+        rotationY += Input.GetAxis("Mouse X") * sensitivityY;
+        rotationY = Mathf.Clamp(rotationY, minimumY, maximumY);
+        ship.transform.localEulerAngles = new Vector3(-rotationX, rotationY, 0);
+
+        /*
+        x = Input.GetAxis("Mouse X");
+        y = Input.GetAxis("Mouse Y");
+        rotate = new Vector3(y * sensitivity, -(x * sensitivity), 0);
+        ship.transform.eulerAngles = ship.transform.eulerAngles - rotate;
+        */
+
+
+        
+
             timer += Time.deltaTime;
 
 
@@ -63,13 +94,12 @@ public class PlayerAiming : MonoBehaviour
                 timer = 0;
                 Shoot();
             }
-        }
     }
 
     void Shoot()
     {
         Debug.Log(laserPos.position);
         Debug.Log(laserPos.TransformPoint(laserPos.position));
-        Instantiate(laser, laserPos.TransformPoint(laserPos.position), Quaternion.identity);
+        Instantiate(laser, laserPos.position, Quaternion.identity);
     }
 }
