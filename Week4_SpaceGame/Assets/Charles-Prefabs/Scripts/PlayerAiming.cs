@@ -20,12 +20,14 @@ public class PlayerAiming : MonoBehaviour
     public float maximumY = 90f;
     public float rotationX = 0f;
     public float rotationY = 0f;
+    public GameObject player;
 
 
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void Update()
@@ -55,6 +57,6 @@ public class PlayerAiming : MonoBehaviour
     {
         Debug.Log(laserPos.position);
         Debug.Log(laserPos.TransformPoint(laserPos.position));
-        Instantiate(laser, laserPos.position, Quaternion.Euler(ship.transform.localEulerAngles));
+        Instantiate(laser, laserPos.position, player.transform.rotation);
     }
 }

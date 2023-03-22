@@ -6,7 +6,7 @@ public class PlayerLazer : MonoBehaviour
 {
     public GameObject lazerPosition;
     public GameObject lazerSpawn;
-    public GameObject ship;
+    public GameObject player;
     private Rigidbody rb;
     public float force;
     float timer;
@@ -14,6 +14,7 @@ public class PlayerLazer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         Debug.Log("LazerSpawningLocation");
         Debug.Log(transform.position);
         rb = GetComponent<Rigidbody>();
@@ -21,8 +22,9 @@ public class PlayerLazer : MonoBehaviour
         Debug.Log(transform.position);
         Debug.Log(lazerPosition.transform.position);
         Vector3 direction = lazerPosition.transform.position - transform.position;
-        rb.velocity = new Vector3(direction.x, direction.y, direction.z).normalized * force;
+        rb.velocity = player.transform.forward.normalized * force;
         transform.LookAt(lazerPosition.transform);
+        transform.rotation = player.transform.rotation;
         canShoot = true;
     }
 
