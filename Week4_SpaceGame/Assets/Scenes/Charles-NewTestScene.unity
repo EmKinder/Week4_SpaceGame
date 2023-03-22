@@ -485,9 +485,5 @@ PrefabInstance:
       propertyPath: audio
       value: 
       objectReference: {fileID: 1692001586}
-    - target: {fileID: 6867612737822761829, guid: 9e0eab89bcd209f4baf5cbdc0f507042, type: 3}
-      propertyPath: rotationObjects
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e0eab89bcd209f4baf5cbdc0f507042, type: 3}
