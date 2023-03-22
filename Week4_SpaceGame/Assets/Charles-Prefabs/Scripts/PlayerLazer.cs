@@ -15,14 +15,14 @@ public class PlayerLazer : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        Debug.Log("LazerSpawningLocation");
-        Debug.Log(transform.position);
+     //   Debug.Log("LazerSpawningLocation");
+     //   Debug.Log(transform.position);
         rb = GetComponent<Rigidbody>();
-        Debug.Log("Laser Positions");
-        Debug.Log(transform.position);
-        Debug.Log(lazerPosition.transform.position);
+     //   Debug.Log("Laser Positions");
+     //   Debug.Log(transform.position);
+     //   Debug.Log(lazerPosition.transform.position);
         Vector3 direction = lazerPosition.transform.position - transform.position;
-        rb.velocity = player.transform.forward.normalized * force;
+        rb.velocity = -player.transform.forward.normalized * force;
         transform.LookAt(lazerPosition.transform);
         transform.rotation = player.transform.rotation;
         canShoot = true;
@@ -42,7 +42,11 @@ public class PlayerLazer : MonoBehaviour
     {
         if (other.tag == "enemy")
         {
+            Debug.Log("Enemy Hit!");
+            EnemyDeath ed = other.GetComponent<EnemyDeath>();
+            ed.ThisEnemyDeath();
             Destroy(this.gameObject);
         }
+
     }
 }

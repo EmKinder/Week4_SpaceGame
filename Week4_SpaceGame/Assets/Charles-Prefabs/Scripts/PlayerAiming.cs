@@ -21,6 +21,7 @@ public class PlayerAiming : MonoBehaviour
     public float rotationX = 0f;
     public float rotationY = 0f;
     public GameObject player;
+    bool canMoveMouse;
 
 
     private void Start()
@@ -28,18 +29,24 @@ public class PlayerAiming : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         player = GameObject.FindGameObjectWithTag("Player");
+        canMoveMouse = false;
     }
 
     private void Update()
     {
         //Aiming
 
-
+        if (canMoveMouse) { 
         rotationX += Input.GetAxis("Mouse Y") * sensitivityX;
         rotationX = Mathf.Clamp(rotationX, minimumX, maximumX);
         rotationY += Input.GetAxis("Mouse X") * sensitivityY;
         rotationY = Mathf.Clamp(rotationY, minimumY, maximumY);
         ship.transform.localEulerAngles = new Vector3(-rotationX, rotationY, 0);
+        }
+        else
+        {
+            ship.transform.localEulerAngles = new Vector3(0, 0, 0);
+        }
 
         timer += Time.deltaTime;
 
@@ -55,8 +62,12 @@ public class PlayerAiming : MonoBehaviour
 
     void Shoot()
     {
-        Debug.Log(laserPos.position);
-        Debug.Log(laserPos.TransformPoint(laserPos.position));
+     //   Debug.Log(laserPos.position);
+    //    Debug.Log(laserPos.TransformPoint(laserPos.position));
         Instantiate(laser, laserPos.position, player.transform.rotation);
+    }
+    public void IfCanMoveMouse(bool x)
+    {
+        canMoveMouse = x;
     }
 }

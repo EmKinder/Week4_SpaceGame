@@ -10,6 +10,9 @@ TagManager:
   - BackgroundMusicManager
   - Asteroid
   - PlayerLaserPosition
+  - Laser
+  - Aiming
+  - PlayerMain
   layers:
   - Default
   - TransparentFX

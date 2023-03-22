@@ -25,6 +25,7 @@ public class JNAstroidCollision : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
+            Debug.Log("Player Hit By Asteroid");
             //need to change to scene name to Lose Scene
             // SceneManager.LoadScene("Jes-Scene");
             ms.GameOverLose();

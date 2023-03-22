@@ -7,14 +7,14 @@ using UnityEngine.UI;
 public class ManageScene : MonoBehaviour
 {
     bool gamePaused;
-    AudioSource backgroundMusic;
+    public AudioSource backgroundMusic;
     public Canvas canvas;
     PlayerScore ps;
     public AudioClip gameOverSound;
     public AudioClip backgroundSound;
     EnemyCount es;
     private static GameObject instance;
-
+    Scene currentScene;
     // Start is called before the first frame update
 
     private void Awake()
@@ -24,13 +24,14 @@ public class ManageScene : MonoBehaviour
 if (instance == null)
         {
             instance = this.gameObject;
-            DontDestroyOnLoad(gameObject);
+
         }
-       // DontDestroyOnLoad(this.gameObject);
-        backgroundMusic = gameObject.GetComponent<AudioSource>();
+        DontDestroyOnLoad(this.gameObject);
+        // DontDestroyOnLoad(this.gameObject);
+        //   backgroundMusic = gameObject.GetComponent<AudioSource>();
         es = gameObject.GetComponent<EnemyCount>();
         ps = gameObject.GetComponent<PlayerScore>();
-
+        
     }
     void Start()
     {
@@ -39,15 +40,28 @@ if (instance == null)
         backgroundMusic.clip = backgroundSound;
         backgroundMusic.loop = true;
         backgroundMusic.Play();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.R)){
+            RestartLevel();
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            PauseGame();
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            Application.Quit();
+        }
+
+        currentScene = SceneManager.GetActiveScene();
     }
 
-    public void PauseGame(bool ifGamePaused)
+    public void PauseGame()
     {
         if (!gamePaused)
         {
@@ -71,8 +85,10 @@ if (instance == null)
         backgroundMusic.Stop();
         ps.ResetScore();
         es.ResetEnemies();
-       // backgroundMusic.loop = true;
         SceneManager.LoadScene(0);
+
+        // backgroundMusic.loop = true;
+        
       //  backgroundMusic.clip = backgroundSound;
       //  backgroundMusic.Play();
 
