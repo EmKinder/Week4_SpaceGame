@@ -158,23 +158,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5575051716824707141}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.02, y: 0.03, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6485208349118782856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5575051716824707141}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a236677678d027f42801f201bba70eb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5138448149232976699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,6 +179,19 @@ MonoBehaviour:
   laserPos: {fileID: 5208661508048223923}
   audio: {fileID: 0}
   pewpew: {fileID: 8300000, guid: b4b537b6774f246d49e7823e82700d40, type: 3}
+--- !u!114 &6485208349118782856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5575051716824707141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a236677678d027f42801f201bba70eb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyDeathTest: 0
 --- !u!1001 &6041252851854371331
 PrefabInstance:
   m_ObjectHideFlags: 0

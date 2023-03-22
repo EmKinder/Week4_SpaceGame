@@ -13,11 +13,13 @@ public class PlayerHealth : MonoBehaviour
     public Image rightHeart2;
     public Image leftHeart3;
     public Image rightHeart3;
+    ManageScene ms;
     
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = startingHealth; 
+        currentHealth = startingHealth;
+        ms = GameObject.FindGameObjectWithTag("Manager").GetComponent<ManageScene>();
     }
 
     // Update is called once per frame
@@ -33,6 +35,7 @@ public class PlayerHealth : MonoBehaviour
         {
             //Game Over
             Debug.Log("Game Over");
+            ms.GameOverLose();
         }
         else
         {

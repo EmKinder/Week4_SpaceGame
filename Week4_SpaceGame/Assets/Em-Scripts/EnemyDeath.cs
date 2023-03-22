@@ -7,15 +7,17 @@ public class EnemyDeath : MonoBehaviour
     Animator anim;
     PlayerScore ps;
     public bool enemyDeathTest;
-    public int enemiesLeft;
+    EnemyCount ec;
+  //  public int enemiesLeft;
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
-        ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScore>();
+        ps = GameObject.FindGameObjectWithTag("Manager").GetComponent<PlayerScore>();
         enemyDeathTest = false;
-        enemiesLeft = 27;
+        ec = GameObject.FindGameObjectWithTag("Manager").GetComponent<EnemyCount>();
+      //  enemiesLeft = 27;
     }
 
     // Update is called once per frame
@@ -42,18 +44,9 @@ public class EnemyDeath : MonoBehaviour
             Debug.Log("Coroutine Called");
             anim.SetTrigger("wobble");
             yield return new WaitForSeconds(waitTime);
-            SetEnemiesLeftInScene();
+            ec.SetEnemiesLeft();
             Destroy(this.gameObject.transform.parent.gameObject);
             Destroy(this.gameObject);
-        }
-    }
-    
-    void SetEnemiesLeftInScene()
-    {
-        enemiesLeft -= 1;
-        if(enemiesLeft == 0)
-        {
-            Debug.Log("You Win!");
         }
     }
 }
