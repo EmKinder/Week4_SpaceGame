@@ -9,6 +9,7 @@ TagManager:
   - ScoreText
   - BackgroundMusicManager
   - Asteroid
+  - PlayerLaserPosition
   layers:
   - Default
   - TransparentFX

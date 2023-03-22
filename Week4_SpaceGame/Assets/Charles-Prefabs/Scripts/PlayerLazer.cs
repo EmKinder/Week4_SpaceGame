@@ -6,6 +6,7 @@ public class PlayerLazer : MonoBehaviour
 {
     public GameObject lazerPosition;
     public GameObject lazerSpawn;
+    public GameObject ship;
     private Rigidbody rb;
     public float force;
     float timer;

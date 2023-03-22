@@ -128,4 +128,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lazerPosition: {fileID: 7459438779545917146, guid: a1c88a0f1a9bf374597d399f786917da, type: 3}
   lazerSpawn: {fileID: 3011586942494589275, guid: 173134670a5feb245b85da399c162a86, type: 3}
+  ship: {fileID: 4925888223086336703, guid: 9e0eab89bcd209f4baf5cbdc0f507042, type: 3}
   force: 74.65

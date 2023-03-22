@@ -2467,6 +2467,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.0182
       objectReference: {fileID: 0}
+    - target: {fileID: 3012541354873904656, guid: 9e0eab89bcd209f4baf5cbdc0f507042, type: 3}
+      propertyPath: m_TagString
+      value: PlayerLaserPosition
+      objectReference: {fileID: 0}
     - target: {fileID: 3012541354873904659, guid: 9e0eab89bcd209f4baf5cbdc0f507042, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.279
@@ -2559,6 +2563,10 @@ PrefabInstance:
       propertyPath: audio
       value: 
       objectReference: {fileID: 1313885763}
+    - target: {fileID: 6867612737822761829, guid: 9e0eab89bcd209f4baf5cbdc0f507042, type: 3}
+      propertyPath: laserPos
+      value: 
+      objectReference: {fileID: 1044842318}
     - target: {fileID: 7750647216407842983, guid: 9e0eab89bcd209f4baf5cbdc0f507042, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.0011
@@ -2771,6 +2779,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1034489577}
   m_CullTransparentMesh: 1
+--- !u!4 &1044842318 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1653842750165958179, guid: 9e0eab89bcd209f4baf5cbdc0f507042, type: 3}
+  m_PrefabInstance: {fileID: 974517410}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1050172263
 PrefabInstance:
   m_ObjectHideFlags: 0
