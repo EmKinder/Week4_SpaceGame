@@ -30,7 +30,7 @@ public class EnemyShooting : MonoBehaviour
            // Debug.Log(distance);
 
 
-            if(distance < 10.0f)
+            if(distance < 70.0f)
             {
                 if (timer > 2)
                 {
