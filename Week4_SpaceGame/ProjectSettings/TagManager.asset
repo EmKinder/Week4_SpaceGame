@@ -5,16 +5,18 @@ TagManager:
   serializedVersion: 2
   tags:
   - enemy
-  - Asteroid
+  - Manager
+  - ScoreText
+  - BackgroundMusicManager
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - TargetRaycasts
+  - 
   - Water
   - UI
-  - Cannon
-  - Ship
+  - 
+  - 
   - 
   - 
   - 
