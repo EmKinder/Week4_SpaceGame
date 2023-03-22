@@ -48,6 +48,7 @@ public class EnemyBodySlam : MonoBehaviour
             mr.SetCanMove(false);
             ph.BeenHit(1);
             ed.ThisEnemyDeath();
+            Destroy(this);
            // es.SetCanShoot(false);
         }
     }

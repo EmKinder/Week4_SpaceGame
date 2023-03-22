@@ -45,7 +45,7 @@ public class EnemyMoveAndRotate : MonoBehaviour
             // Debug.Log(distance);
 
 
-            if (distance < 10.0f)
+            if (distance < 70.0f)
             {
                 transform.LookAt(playerTrans);
                 transform.position += transform.forward * 5f * Time.deltaTime;
