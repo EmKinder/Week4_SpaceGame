@@ -5,12 +5,12 @@ using UnityEngine;
 public class EnemyCount : MonoBehaviour
 {
 
-    int enemiesLeft;
+    public int enemiesLeft;
     ManageScene ms; 
     // Start is called before the first frame update
     void Start()
     {
-        enemiesLeft = 27;
+        enemiesLeft = 24;
         ms = gameObject.GetComponent<ManageScene>();
     }
 
