@@ -30,9 +30,9 @@ public class EnemyShooting : MonoBehaviour
            // Debug.Log(distance);
 
 
-            if(distance < 10.0f)
+            if(distance < 40.0f)
             {
-                if (timer > 2)
+                if (timer > 4)
                 {
                     audio.clip = pewpew;
                     audio.Play();

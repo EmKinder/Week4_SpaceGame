@@ -13,12 +13,20 @@ public class ManageScene : MonoBehaviour
     public AudioClip gameOverSound;
     public AudioClip backgroundSound;
     EnemyCount es;
+    private static GameObject instance;
 
     // Start is called before the first frame update
 
     private void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
+
+
+if (instance == null)
+        {
+            instance = this.gameObject;
+            DontDestroyOnLoad(gameObject);
+        }
+       // DontDestroyOnLoad(this.gameObject);
         backgroundMusic = gameObject.GetComponent<AudioSource>();
         es = gameObject.GetComponent<EnemyCount>();
         ps = gameObject.GetComponent<PlayerScore>();
@@ -60,12 +68,15 @@ public class ManageScene : MonoBehaviour
 
     public void RestartLevel()
     {
+        backgroundMusic.Stop();
         ps.ResetScore();
         es.ResetEnemies();
-        backgroundMusic.clip = backgroundSound;
-        backgroundMusic.loop = true;
-        backgroundMusic.Play();
+       // backgroundMusic.loop = true;
         SceneManager.LoadScene(0);
+      //  backgroundMusic.clip = backgroundSound;
+      //  backgroundMusic.Play();
+
+
     }
 
     public void GameOverLose()
