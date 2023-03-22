@@ -19,8 +19,10 @@ public class ManageScene : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
-        backgroundMusic = GameObject.FindGameObjectWithTag("Manager").GetComponent<AudioSource>();
+        backgroundMusic = gameObject.GetComponent<AudioSource>();
         es = gameObject.GetComponent<EnemyCount>();
+        ps = gameObject.GetComponent<PlayerScore>();
+
     }
     void Start()
     {
