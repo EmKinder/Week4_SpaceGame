@@ -2254,6 +2254,19 @@ MonoBehaviour:
   rightHeart2: {fileID: 641983936}
   leftHeart3: {fileID: 671991822}
   rightHeart3: {fileID: 1034489579}
+--- !u!114 &733291430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733291425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 020aa65980694414097bbea10701b8ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 10
 --- !u!1001 &745310801
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3100,6 +3113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a5f1df6ccbd8374481ae5df32e295a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemiesLeft: 0
+  CheckEnemiesLeftBool: 0
 --- !u!82 &1313885763
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3112,7 +3127,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3600,7 +3615,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7751490647302914415, guid: 0fbc778ede483b84692b533b615cf15f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 31.9
+      value: 57
       objectReference: {fileID: 0}
     - target: {fileID: 7751490647302914415, guid: 0fbc778ede483b84692b533b615cf15f, type: 3}
       propertyPath: m_LocalRotation.w
