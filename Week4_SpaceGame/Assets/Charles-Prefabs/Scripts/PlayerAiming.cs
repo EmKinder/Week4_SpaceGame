@@ -55,6 +55,6 @@ public class PlayerAiming : MonoBehaviour
     {
         Debug.Log(laserPos.position);
         Debug.Log(laserPos.TransformPoint(laserPos.position));
-        Instantiate(laser, laserPos.TransformPoint(laserPos.transform.position), Quaternion.identity);
+        Instantiate(laser, laserPos.position, Quaternion.Euler(ship.transform.localEulerAngles));
     }
 }
