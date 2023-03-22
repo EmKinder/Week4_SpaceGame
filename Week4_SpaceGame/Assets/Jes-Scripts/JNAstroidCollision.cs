@@ -7,7 +7,7 @@ public class JNAstroidCollision : MonoBehaviour
 {
     // Start is called before the first frame update
     PlayerHealth health;
-    public int whateverHealthTheyreLosing;
+   public int whateverHealthTheyreLosing;
     void Start()
     {
         
@@ -23,9 +23,10 @@ public class JNAstroidCollision : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Player")
-        {
-            SceneManager.LoadScene("Jes-Scene");
-            health.BeenHit(whateverHealthTheyreLosing);
+        {   
+            //need to change to scene name to Lose Scene
+           SceneManager.LoadScene("Jes-Scene");
+         //  health.BeenHit(whateverHealthTheyreLosing);
 
         }
     }
