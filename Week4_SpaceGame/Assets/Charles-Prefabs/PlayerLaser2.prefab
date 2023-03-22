@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3045204574587692531}
   - component: {fileID: 2156493013776247382}
   - component: {fileID: 4182033920611475100}
-  - component: {fileID: 3298891195258552862}
   - component: {fileID: 6313065644036933903}
   - component: {fileID: 3197394904237614055}
+  - component: {fileID: 2022410410196446228}
   m_Layer: 0
   m_Name: PlayerLaser2
   m_TagString: Untagged
@@ -29,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2380554556724608841}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 720.12836, y: 720.12836, z: 720.12836}
+  m_LocalPosition: {x: -0, y: 0, z: -0.00000089865}
+  m_LocalScale: {x: 41.550686, y: 41.550686, z: 41.550686}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -84,21 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3298891195258552862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2380554556724608841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f000294258298974faa743e70f0b6f03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cannonsLocation: {fileID: 7459438779545917146, guid: a1c88a0f1a9bf374597d399f786917da, type: 3}
-  target: {fileID: 7459438779545917146, guid: a1c88a0f1a9bf374597d399f786917da, type: 3}
-  force: 100
 --- !u!54 &6313065644036933903
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -129,3 +114,18 @@ CapsuleCollider:
   m_Height: 0.00050260295
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: -0.0000000018626451}
+--- !u!114 &2022410410196446228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2380554556724608841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f000294258298974faa743e70f0b6f03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lazerPosition: {fileID: 7459438779545917146, guid: a1c88a0f1a9bf374597d399f786917da, type: 3}
+  lazerSpawn: {fileID: 3011586942494589275, guid: 173134670a5feb245b85da399c162a86, type: 3}
+  force: 74.65

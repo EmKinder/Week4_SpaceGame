@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerLazer : MonoBehaviour
 {
-    public GameObject cannonsLocation;
-    public GameObject target;
+    public GameObject lazerPosition;
+    public GameObject lazerSpawn;
     private Rigidbody rb;
     public float force;
     float timer;
@@ -16,10 +16,10 @@ public class PlayerLazer : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         Debug.Log("Laser Positions");
         Debug.Log(transform.position);
-        Debug.Log(cannonsLocation.transform.position);
-        Vector3 direction = transform.position - cannonsLocation.transform.position;
+        Debug.Log(lazerPosition.transform.position);
+        Vector3 direction = transform.TransformPoint(transform.position) - lazerPosition.transform.TransformPoint(lazerPosition.transform.position);
         rb.velocity = new Vector3(direction.x, direction.y, direction.z).normalized * force;
-        transform.LookAt(cannonsLocation.transform);
+        transform.LookAt(lazerPosition.transform);
         canShoot = true;
     }
 
