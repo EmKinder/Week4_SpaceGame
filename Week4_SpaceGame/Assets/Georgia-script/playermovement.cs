@@ -23,5 +23,10 @@ public class playermovement : MonoBehaviour
         {
             transform.Translate(Vector2.left *moveSpeed *Time.deltaTime);
         }
+
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            transform.Translate(new Vector3(0, 0, -1) * moveSpeed * Time.deltaTime);
+        }
     }
 }
