@@ -96,8 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f000294258298974faa743e70f0b6f03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cannonsLocation: {fileID: 2285118359482324124, guid: 65caa0cc67c17254286536ea449e7516, type: 3}
-  target: {fileID: 2285118359482324124, guid: 65caa0cc67c17254286536ea449e7516, type: 3}
+  cannonsLocation: {fileID: 7459438779545917146, guid: a1c88a0f1a9bf374597d399f786917da, type: 3}
+  target: {fileID: 7459438779545917146, guid: a1c88a0f1a9bf374597d399f786917da, type: 3}
   force: 100
 --- !u!54 &6313065644036933903
 Rigidbody:

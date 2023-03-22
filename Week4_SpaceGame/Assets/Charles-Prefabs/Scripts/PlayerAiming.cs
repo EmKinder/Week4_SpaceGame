@@ -22,19 +22,24 @@ public class PlayerAiming : MonoBehaviour
 
     private void Update()
     {
+
+
+        Debug.Log(Input.mousePosition);
+
+
         Ray ray = fpsCamera.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit raycastHit, float.MaxValue, layerMask))
+        //
+        if (Physics.Raycast(ray, out RaycastHit raycastHit))
         {
-            
+            Debug.Log("HHHHHHHHHHIIIIIIIIIIIIIIIIITTTTTTTTTTTTTTT");
             transform.position = raycastHit.point;
             
             Vector3 rotation = raycastHit.point - rotationObjects.transform.position;
             float rotZ = Mathf.Atan2(rotation.x, rotation.z) * Mathf.Rad2Deg;
             float rotX = Mathf.Atan2(rotation.y, rotation.z) * Mathf.Rad2Deg;
-            rotationObjects.transform.localRotation = Quaternion.Euler(-(rotX + 90), 0, rotZ);
+            rotationObjects.transform.rotation = Quaternion.Euler(-(rotX+90) , 0, rotZ);
 
 
-            
             /*
             Vector3 targetDirection = raycastHit.point - rotationObjects.transform.position;
             float singleStep = speed * Time.deltaTime;
@@ -63,6 +68,8 @@ public class PlayerAiming : MonoBehaviour
 
     void Shoot()
     {
-        Instantiate(laser, laserPos.position, rotationObjects.transform.localRotation);
+        Debug.Log(laserPos.position);
+        Debug.Log(laserPos.TransformPoint(laserPos.position));
+        Instantiate(laser, laserPos.TransformPoint(laserPos.position), Quaternion.identity);
     }
 }

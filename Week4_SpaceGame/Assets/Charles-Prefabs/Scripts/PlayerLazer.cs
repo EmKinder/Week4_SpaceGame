@@ -14,9 +14,12 @@ public class PlayerLazer : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-
-        Vector3 direction = cannonsLocation.transform.position - transform.position;
+        Debug.Log("Laser Positions");
+        Debug.Log(transform.position);
+        Debug.Log(cannonsLocation.transform.position);
+        Vector3 direction = transform.position - cannonsLocation.transform.position;
         rb.velocity = new Vector3(direction.x, direction.y, direction.z).normalized * force;
+        transform.LookAt(cannonsLocation.transform);
         canShoot = true;
     }
 

@@ -8,11 +8,12 @@ TagManager:
   - Manager
   - ScoreText
   - BackgroundMusicManager
+  - Asteroid
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - ThingsToHit
   - Water
   - UI
   - 
